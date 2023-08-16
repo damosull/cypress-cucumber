@@ -1,0 +1,35 @@
+name: '$(Build.DefinitionName)-$(Date:yyyyMMdd)$(Rev:.r)'
+
+trigger: none
+
+schedules:
+  - cron: '0 8 * * 1-5'
+    displayName: 'Daily Build at 08:00 GMT'
+    always: true
+    branches:
+      include:
+        - master
+
+jobs:
+  - job: ViewpointAutomation
+    timeoutInMinutes: 75
+    pool:
+      name: 'VMSS - DEV - QAUAT'
+    strategy:
+      parallel: 3
+    steps:
+      - script: |
+          npm ci
+        displayName: 'Install Node Dependencies'
+
+      - script: |
+          npx cypress run
+        displayName: 'Run Cypress Tests'
+
+      - task: PublishPipelineArtifact@1
+        displayName: 'Publish Failure Screenshots'
+        inputs:
+          targetPath: 'test-screenshots'
+          artifact: 'Screenshots-Run$(System.JobAttempt)-Instance$(System.JobPositionInPhase)'
+        continueOnError: true
+        condition: failed()
