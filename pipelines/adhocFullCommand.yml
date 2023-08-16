@@ -1,0 +1,21 @@
+name: '$(Build.DefinitionName)-$(Date:yyyyMMdd)$(Rev:.r)'
+
+parameters:
+  - name: buildParameters
+    displayName: 'Build Parameters'
+    type: string
+    default: 'npx cypress run --config specPattern=cypress/e2e/**/*.feature'
+
+trigger: none
+
+jobs:
+  - job: E2E_Full_Command
+    timeoutInMinutes: 75
+
+    steps:
+      - script: npm ci
+        displayName: 'Install Node Dependencies'
+
+      - script: |
+          ${{ parameters.buildParameters }}
+        displayName: 'Run Cypress tests'

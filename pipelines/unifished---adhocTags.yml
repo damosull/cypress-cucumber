@@ -1,0 +1,32 @@
+name: '$(Build.DefinitionName)-$(Date:yyyyMMdd)$(Rev:.r)'
+
+parameters:
+  - name: buildParameters
+    displayName: 'Build Parameters'
+    type: string
+    default: 'npx cypress run --config specPattern=cypress/e2e/**/*.feature'
+  - name: testSuite
+    displayName: 'Test Suite'
+    default: 'Smoke'
+    values:
+      - 'Smoke'
+      - 'Regression'
+
+trigger: none
+
+jobs:
+  - job: E2E_Adhoc
+    timeoutInMinutes: 75
+
+    steps:
+      - script: npm ci
+        displayName: 'Install Node Dependencies'
+
+      - script: |
+          if [ ${{ parameters.testSuite }} == 'Smoke' ]; then
+            // do something here to set the tags to something like `--env tags=@Smoke`
+          else
+            // do something here to set the tags to something like `--env tags=@Regression`
+          fi
+          ${{ parameters.buildParameters }}
+        displayName: 'Run Cypress tests'
