@@ -20,6 +20,7 @@ Feature: A/B Testing
               And I refresh the page
              Then the page header contains text 'A/B Test'
 
+        @Smoke
         Scenario: Opt out of the A/B test with the Opt Out URL
 
              When I go to the opt out URL the displayed alert reads 'You have successfully opted out of Optimizely for this domain.'

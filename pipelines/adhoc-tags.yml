@@ -1,10 +1,6 @@
 name: '$(Build.DefinitionName)-$(Date:yyyyMMdd)$(Rev:.r)'
 
 parameters:
-  - name: buildParameters
-    displayName: 'Build Parameters'
-    type: string
-    default: 'npx cypress run --config specPattern=cypress/e2e/**/*.feature'
   - name: testSuite
     displayName: 'Test Suite'
     default: 'Smoke'
@@ -24,9 +20,11 @@ jobs:
 
       - script: |
           if [ ${{ parameters.testSuite }} == 'Smoke' ]; then
-            // do something here to set the tags to something like `--env tags=@Smoke`
+            tags="--env tags=@Smoke"
           else
-            // do something here to set the tags to something like `--env tags=@Regression`
+            tags="--env tags=@Regression"
           fi
-          ${{ parameters.buildParameters }}
+          cypressCommand="npx cypress run --config specPattern=cypress/e2e/**/*.feature $tags"
+          echo "Running command: $cypressCommand"
+          $cypressCommand
         displayName: 'Run Cypress tests'

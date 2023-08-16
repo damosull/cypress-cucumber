@@ -9,7 +9,7 @@ parameters:
 trigger: none
 
 jobs:
-  - job: E2E_Full_Command
+  - job: adhoc-full-command
     timeoutInMinutes: 75
 
     steps:
