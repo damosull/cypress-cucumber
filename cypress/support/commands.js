@@ -1,5 +1,4 @@
 import { API, messages, PASSWORD } from '../support/constants';
-import controversyAlertJsonBody from '../fixtures/controversyAlertBody';
 import * as dateUtils from '../utils/date';
 
 Cypress.Commands.add('SetPaginationAndVerify', (numItemsPerPage, num) => {
@@ -525,23 +524,6 @@ Cypress.Commands.add('clickIfExist', (element) => {
 					cy.get(element).click();
 				}
 			});
-		}
-	});
-});
-
-Cypress.Commands.add('addControversyAlertFile', () => {
-	cy.request({
-		method: 'POST',
-		url: 'https://microservices.aqua.dev.glasslewis.net/controversyalertsmanagement/api/v1/Controversy',
-		body: controversyAlertJsonBody,
-		failOnStatusCode: false,
-	}).then((response) => {
-		if (response.status === 200) {
-			cy.task('log', `CA File Added!!`);
-		} else if (response.status === 400) {
-			cy.task('log', `CA File Exists!!`);
-		} else {
-			expect(response.status).to.not.be.oneOf([500, 501, 502, 503, 504, 509, 511]);
 		}
 	});
 });
