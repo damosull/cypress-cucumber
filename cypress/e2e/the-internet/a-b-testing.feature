@@ -7,6 +7,7 @@ Feature: A/B Testing
         
             Given I navigate to 'the-internet'
              When I click the "A/B Testing" link
+          #    todo: making this step fail so we can check if failure screenshot is beingadded to report in pipeline
              Then I am on the "abtestasdf" page
               And the page header contains text 'A/B Test'
 
