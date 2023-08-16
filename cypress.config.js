@@ -1,7 +1,5 @@
 const { defineConfig } = require('cypress');
-const { cloudPlugin } = require('cypress-cloud/plugin');
 const fs = require('fs-extra');
-const xlsx = require('node-xlsx').default;
 const createBundler = require('@bahmutov/cypress-esbuild-preprocessor');
 const preprocessor = require('@badeball/cypress-cucumber-preprocessor');
 const createEsbuildPlugin = require('@badeball/cypress-cucumber-preprocessor/esbuild');
@@ -11,7 +9,6 @@ const plugin = require('node-stdlib-browser/helpers/esbuild/plugin');
 async function setupNodeEvents(on, config) {
 	config.baseUrl = 'https://the-internet.herokuapp.com';
 
-	await cloudPlugin(on, config);
 	await preprocessor.addCucumberPreprocessorPlugin(on, config, {
 		omitBeforeRunHandler: true,
 		omitAfterRunHandler: true,
@@ -43,19 +40,6 @@ async function setupNodeEvents(on, config) {
 		},
 	});
 
-	on('task', {
-		parseXlsx({ filePath, sheetName, rows }) {
-			return new Promise((resolve, reject) => {
-				try {
-					const jsonData = xlsx.parse(filePath, { sheets: sheetName, sheetRows: rows });
-					resolve(jsonData);
-				} catch (e) {
-					reject(e);
-				}
-			});
-		},
-	});
-
 	on('after:run', async (results) => {
 		if (results) {
 			try {
@@ -73,31 +57,31 @@ async function setupNodeEvents(on, config) {
 }
 
 module.exports = defineConfig({
-	defaultCommandTimeout: 30000,
-	requestTimeout: 15000,
-	responseTimeout: 30000,
-	pageLoadTimeout: 60000,
-	numTestsKeptInMemory: 2,
-	experimentalMemoryManagement: true,
 	chromeWebSecurity: false,
-	screenshotsFolder: 'test-results/screenshots',
-	videosFolder: 'test-results/videos',
-	viewportWidth: 1920,
-	viewportHeight: 1200,
-	watchForFileChanges: false,
-	screenshotOnRunFailure: true,
-	video: false,
-	videoCompression: 8,
-	reporter: 'spec',
-	retries: {
-		runMode: 1,
-		openMode: 0,
-	},
+	defaultCommandTimeout: 30000,
 	env: {
 		testEnv: 'aqua',
 	},
+	experimentalMemoryManagement: true,
 	e2e: {
 		setupNodeEvents,
 		specPattern: '**/*.feature',
+	},
+	numTestsKeptInMemory: 2,
+	pageLoadTimeout: 60000,
+	reporter: 'spec',
+	requestTimeout: 15000,
+	responseTimeout: 30000,
+	screenshotOnRunFailure: true,
+	screenshotsFolder: 'test-results/screenshots',
+	video: false,
+	videoCompression: 8,
+	videosFolder: 'test-results/videos',
+	viewportHeight: 1200,
+	viewportWidth: 1920,
+	watchForFileChanges: false,
+	retries: {
+		runMode: 1,
+		openMode: 0,
 	},
 });
