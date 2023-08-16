@@ -7,6 +7,7 @@ Feature: Add/Remove Elements
              When I click the "Add/Remove Elements" link
              Then I am on the "add_remove_elements" page
 
+        @Regression
         Scenario: Add & Remove elements using clicks, mouse actions, & keyboard actions
             
              When I click the "Add Element" button
