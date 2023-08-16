@@ -17,9 +17,8 @@ jobs:
         displayName: 'Install Node Dependencies'
 
       - script: |
-          echo "Running command: $parameters.runCommand"
+          echo "Running command: ${{ parameters.runCommand }}"
           ${{ parameters.runCommand }}
-
         displayName: 'Run Cypress tests'
 
       - task: PublishPipelineArtifact@1
