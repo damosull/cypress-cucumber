@@ -3,6 +3,7 @@ Feature: A/B Testing
               After setting this cookie, the "No A/B Test" page is displayed
               After clearing all cookies, the "A/B Test" page is displayed
 
+        @Regression
         Scenario: Set a cookie to opt out of the A/B test
         
             Given I navigate to 'the-internet'
