@@ -225,6 +225,7 @@ class reportingPage {
 		return cy.get("ul[data-bind='foreach: ReportsTypes']");
 	}
 	columnCheckboxByLabel(label) {
+		// eslint-disable-next-line
 		return cy
 			.get('.report-column-label')
 			.contains(new RegExp('^' + label + '$'))
@@ -232,6 +233,7 @@ class reportingPage {
 			.prev();
 	}
 	currentSelectionColumnCheckboxByLabel(label) {
+		// eslint-disable-next-line
 		return cy
 			.get('#rpt-selected-columns')
 			.find('.report-column-label')
@@ -240,6 +242,7 @@ class reportingPage {
 			.prev();
 	}
 	availableSelectionColumnCheckboxByLabel(label) {
+		// eslint-disable-next-line
 		return cy
 			.get('#rpt-available-columns')
 			.find('.report-column-label')

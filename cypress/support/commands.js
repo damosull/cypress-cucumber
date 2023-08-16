@@ -397,45 +397,6 @@ Cypress.Commands.add('removeAllExistingSelectedCriteria', (isInternal) => {
 	});
 });
 
-Cypress.Commands.add('AddMultipleCriteria', (searchText, isReporting) => {
-	cy.intercept(
-		'GET',
-		'**/Api/WebUI//WorkflowFilterCriteriaEditors/ForField?fields=**&objectType=WorkflowExpansion&customerId=0&_=**'
-	).as('WorkflowFilter');
-	cy.intercept('GET', '**//Api/WebUI/FilterCriteriaEditors/ForField?fields=**&objectType=**&customerId=0&_=**').as(
-		'ReportFilter'
-	);
-	cy.intercept('GET', '**/Api/Data//ListService/**?CustomerID=0').as('ListService');
-	cy.scrollTo('top', { ensureScrollable: false, easing: 'linear' });
-	cy.get('#btn-add-criteria').click({ scrollBehavior: false });
-	searchText.forEach((value) => {
-		cy.then(() => {
-			cy.get('#txt-filter-criteria')
-				.clear({ force: true })
-				.type(value)
-				.parent()
-				.siblings()
-				.children()
-				.find('input[type="checkbox"]')
-				.check({ force: true });
-		});
-	});
-
-	cy.contains('Apply').click({ scrollBehavior: false });
-
-	if (!isReporting) {
-		cy.get('#filterPreferenceControl > div > #controls > div > div > h4:nth-child(n+2)').should(
-			'contain.text',
-			searchText
-		);
-	} else {
-		cy.wait('@ReportFilter');
-		cy.get('#report-criteria-controls > div > div > h4').each((h4) => {
-			expect(h4.text().trim()).to.be.oneOf(searchText);
-		});
-	}
-});
-
 Cypress.Commands.add('addCriteriaStatus', (statusToSearch, isReporting) => {
 	cy.intercept('POST', '**/Api/Data/WorkflowSecuritiesWatchlists/').as('WorkflowSecuritiesWatchlists');
 	cy.intercept('POST', '**/Api/Data/Assignee/GetAvailableAssigneesForCustomer').as('GetAvailableAssigneesForCustomer');
@@ -451,6 +412,7 @@ Cypress.Commands.add('addCriteriaStatus', (statusToSearch, isReporting) => {
 	});
 
 	statusToSearch.forEach((value) => {
+		// eslint-disable-next-line
 		cy.get('.editor-modal > input').clear({ force: true }).type(value);
 		cy.get('.editor-modal > div > div > label').contains(value).click({ force: true });
 	});

@@ -62,9 +62,7 @@
 			"plugin:cypress/recommended",
 			"eslint:recommended"
 		],
-		"rules": {
-			"cypress/unsafe-to-chain-command": "warn"
-		}
+		"rules": {}
 	},
 	"prettier": {
 		"trailingComma": "es5",

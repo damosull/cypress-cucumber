@@ -11,7 +11,7 @@ const plugin = require('node-stdlib-browser/helpers/esbuild/plugin');
 const { queryTestDb } = require('./cypress/utils/queryDB');
 
 async function setupNodeEvents(on, config) {
-	config.baseUrl = `https://viewpoint.${config.env.testEnv}.glasslewis.com`;
+	config.baseUrl = 'https://the-internet.herokuapp.com';
 
 	await cloudPlugin(on, config);
 	await preprocessor.addCucumberPreprocessorPlugin(on, config, {

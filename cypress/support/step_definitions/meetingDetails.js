@@ -670,6 +670,7 @@ Then('I clear the rationales for VAM entries and VAP entries and add rationales 
 			var selected = Cypress.$(value).find(':selected').text();
 			if (!vaprec.includes('Non Voting')) {
 				if (vaprec.toLowerCase() !== selected.toLowerCase() || vamrec.toLowerCase() !== selected.toLowerCase()) {
+					// eslint-disable-next-line
 					cy.get(`#md-votecard-grid-results > tr:nth-child(${index + 1}) > td.cell-with-rationale > div > div > span`)
 						.scrollIntoView()
 						.click({ force: true });
@@ -684,6 +685,7 @@ Then('I clear the rationales for VAM entries and VAP entries and add rationales 
 						}) > td.cell-with-rationale > div > div > div > div.editable-input > div.editable-buttons > button.js-editable-submit.secondary.blue.btn-update`
 					).click({ force: true });
 				} else {
+					// eslint-disable-next-line
 					cy.get(`tr:nth-child(${index + 1}) > td.cell-with-rationale > div > div > span`)
 						.scrollIntoView()
 						.click({ force: true });
@@ -715,6 +717,7 @@ Then('I clear the rationales for VAM entries and add rationales for other propos
 			var selected = Cypress.$(value).find(':selected').text();
 			if (!rec.includes('Non Voting')) {
 				if (rec.toLowerCase() !== selected.toLowerCase()) {
+					// eslint-disable-next-line
 					cy.get(`#md-votecard-grid-results > tr:nth-child(${index + 1}) > td.cell-with-rationale > div > div > span`)
 						.scrollIntoView()
 						.click({ force: true });
@@ -729,6 +732,7 @@ Then('I clear the rationales for VAM entries and add rationales for other propos
 						}) > td.cell-with-rationale > div > div > div > div.editable-input > div.editable-buttons > button.js-editable-submit.secondary.blue.btn-update`
 					).click({ force: true });
 				} else {
+					// eslint-disable-next-line
 					cy.get(`tr:nth-child(${index + 1}) > td.cell-with-rationale > div > div > span`)
 						.scrollIntoView()
 						.click({ force: true });
@@ -760,6 +764,7 @@ Then('I clear the rationales for VAP entries and add rationales for other propos
 			var selected = Cypress.$(value).find(':selected').text();
 			if (!rec.includes('Non Voting')) {
 				if (rec.toLowerCase() !== selected.toLowerCase()) {
+					// eslint-disable-next-line
 					cy.get(`#md-votecard-grid-results > tr:nth-child(${index + 1}) > td.cell-with-rationale > div > div > span`)
 						.scrollIntoView()
 						.click({ force: true });
@@ -774,6 +779,7 @@ Then('I clear the rationales for VAP entries and add rationales for other propos
 						}) > td.cell-with-rationale > div > div > div > div.editable-input > div.editable-buttons > button.js-editable-submit.secondary.blue.btn-update`
 					).click({ force: true });
 				} else {
+					// eslint-disable-next-line
 					cy.get(`tr:nth-child(${index + 1}) > td.cell-with-rationale > div > div > span`)
 						.scrollIntoView()
 						.click({ force: true });
@@ -803,6 +809,7 @@ Then('I enter rationales for all proposals in the meeting', () => {
 		$rows.each((index, value) => {
 			const rec = Cypress.$(value).find('td.vote-card-policy-rec').text();
 			if (!rec.includes('Non Voting')) {
+				// eslint-disable-next-line
 				cy.get(`tr:nth-child(${index + 1}) > td.cell-with-rationale > div > div > span`)
 					.scrollIntoView()
 					.click({ force: true });
@@ -1336,6 +1343,7 @@ Then('I am able to iterate through rationales, add text entry, save and verify t
 
 		const voting = $ele.text();
 		if (!voting.includes('Non Voting')) {
+			// eslint-disable-next-line
 			cy.get(`tr:nth-child(${$idx + 1}) > td.cell-with-rationale > div > div > span`)
 				.scrollIntoView()
 				.click({ force: true });
@@ -1486,6 +1494,7 @@ Then('I remove all existing comments', () => {
 			if ($body.find('a[id="comment-delete"]').length > 0) {
 				const len = $body.find('a[id="comment-delete"]').length;
 				for (let i = len; i > 0; i--) {
+					// eslint-disable-next-line
 					cy.get('a[id="comment-delete"]')
 						.eq(i - 1)
 						.scrollIntoView()
@@ -1559,6 +1568,7 @@ When('I edit the comment', () => {
 Then('I amend the name of the attachment', () => {
 	meetingDetailsPage.editAttachmentButton().should('be.visible').click();
 	meetingDetailsPage.attachmentsDiv().within(() => {
+		// eslint-disable-next-line
 		cy.get('input').clear().type('amendedImage.jpg');
 	});
 	meetingDetailsPage.meetingNoteSubmitButton().click();

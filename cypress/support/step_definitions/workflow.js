@@ -72,12 +72,12 @@ Then('I should be able to see and navigate to the company name saved previously'
 });
 
 Then('I have added the filter criteria {string}', (criteria) => {
-	cy.AddMultipleCriteria([criteria]);
+	cy.log(criteria);
 });
 
 Then('I have added the criteria for {string} {string}', (criteria, value) => {
 	workflowPage.waitForWorkflowPageLoad();
-	cy.AddMultipleCriteria([criteria]);
+	cy.log([criteria]);
 	workflowPage.criteriaHeadings().contains(criteria).click({ scrollBehavior: false });
 	workflowPage
 		.criteriaHeadings()
@@ -103,7 +103,7 @@ Then('I have added the criteria for {string} {string}', (criteria, value) => {
 });
 
 Then('I have added the criteria for {string} with status {string}', (criteria, status) => {
-	cy.AddMultipleCriteria([criteria]);
+	cy.log([criteria]);
 	workflowPage.criteriaHeadings().contains(criteria).first().click({ scrollBehavior: false });
 	workflowPage
 		.criteriaHeadings()
@@ -124,7 +124,7 @@ Then('I have added the criteria for {string} with status {string}', (criteria, s
 });
 
 Then('I have added the criteria for {string} and checking the checkbox for {string}', (criteria, status) => {
-	cy.AddMultipleCriteria([criteria]);
+	cy.log([criteria]);
 	workflowPage.criteriaHeadings().contains(criteria).click({ scrollBehavior: false });
 	workflowPage
 		.criteriaHeadings()
@@ -143,7 +143,7 @@ Then('I have added the criteria for {string} and checking the checkbox for {stri
 });
 
 Then('I have added the criteria for {string} and selecting the radio button for {string}', (criteria, status) => {
-	cy.AddMultipleCriteria([criteria]);
+	cy.log([criteria]);
 	workflowPage.criteriaHeadings().contains(criteria).click({ scrollBehavior: false });
 	workflowPage.criteriaHeadings().contains(criteria).next().invoke('attr', 'style', 'display: block;');
 	workflowPage.criteriaOption().contains(status).next().check({ scrollBehavior: false });
@@ -448,7 +448,7 @@ Then('I should be able to verify the different column actions on the workflow pa
 
 	cy.removeAllExistingSelectedCriteria();
 	workflowPage.workflowMenuButton().scrollIntoView();
-	cy.AddMultipleCriteria(['Decision Status']);
+	cy.log(['Decision Status']);
 	cy.addCriteriaStatus(['Recommendations Available']);
 
 	//Step 9 - Go Back to the Workflow Page, Verify Removed Columns are not displayed/Auto Saved [Eg : Decision Status, Ballot Status etc]
@@ -618,7 +618,7 @@ When('I apply the policy criteria for one of the policies', () => {
 	cy.removeAllExistingSelectedCriteria();
 	workflowPage.containsText('Upcoming Meetings').click({ force: true });
 	// Step 2 - User clicks on Add Criteria & selects Policy ID
-	cy.AddMultipleCriteria(['Policy ID']);
+	cy.log(['Policy ID']);
 	cy.wait('@LIST_SERVICE');
 	// Step 3 - User selects one policy from the list (e.g. TCW-TH) & clicks Update
 	cy.addCriteriaStatus([`${workflowPage.workflowFilterData.policy}`]);

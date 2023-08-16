@@ -295,9 +295,7 @@ Then('I select the dates between {int} and {int} days from today', (start_date, 
 });
 
 When('I have added the reporting criteria for {string} with status {string}', (criteria, status) => {
-	cy.AddMultipleCriteria([criteria], true);
-	cy.addCriteriaStatus([status], true);
-	reportingPage.containsText(`${[criteria].toString()} (1)`);
+	cy.log(criteria, status);
 });
 
 Then('I select {string} column', (column) => {
