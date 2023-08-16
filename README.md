@@ -1,12 +1,12 @@
 # Introduction
 
-This repo consists of the cypress end-to-end tests for Viewpoint application.
+This repo consists of the cypress end-to-end tests for ... application.
 
 <br/>
 
 # Running Tests for non-techs
 
-If you want to run automated tests on Viewpoint, but have little or no idea on how to run specific test scripts, then follow below steps. This will help you run specific automated test scripts from the Viewpoint Regression Test Suite, Automation Backlog Test Suite or the Automated Smoke Tests.
+If you want to run automated tests on ..., but have little or no idea on how to run specific test scripts, then follow below steps. This will help you run specific automated test scripts from the ... Test Suite.
 
 To run tests on Azure Pipelines, go to [`this link`](https://dev.azure.com/glasslewis/Development/_build?definitionId=430), click on `Run pipeline`, put the command suggested below under `Build Parameters`. Choose the test environment as required and make sure you change the number of parallel instances to 1. Then, Click `Run`.
 
