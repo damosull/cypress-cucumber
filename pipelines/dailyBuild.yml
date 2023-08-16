@@ -13,10 +13,6 @@ schedules:
 jobs:
   - job: ViewpointAutomation
     timeoutInMinutes: 75
-    pool:
-      name: 'VMSS - DEV - QAUAT'
-    strategy:
-      parallel: 3
     steps:
       - script: |
           npm ci
