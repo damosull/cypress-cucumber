@@ -28,3 +28,19 @@ jobs:
           echo "Running command: $cypressCommand"
           $cypressCommand
         displayName: 'Run Cypress tests'
+
+      - task: PublishPipelineArtifact@1
+        displayName: 'Publish Cucumber Report'
+        inputs:
+          targetPath: 'test-results/cucumber/cucumber_report.html'
+          artifact: 'Report-Run$(System.JobAttempt)-Instance$(System.JobPositionInPhase)'
+        continueOnError: true
+        condition: succeededOrFailed()
+
+      - task: PublishPipelineArtifact@1
+        displayName: 'Publish Failure Screenshots'
+        inputs:
+          targetPath: 'test-screenshots'
+          artifact: 'Screenshots-Run$(System.JobAttempt)-Instance$(System.JobPositionInPhase)'
+        continueOnError: true
+        condition: failed()
