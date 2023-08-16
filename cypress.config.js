@@ -2,13 +2,11 @@ const { defineConfig } = require('cypress');
 const { cloudPlugin } = require('cypress-cloud/plugin');
 const fs = require('fs-extra');
 const xlsx = require('node-xlsx').default;
-const { readPdf } = require('./cypress/utils/read-pdf');
 const createBundler = require('@bahmutov/cypress-esbuild-preprocessor');
 const preprocessor = require('@badeball/cypress-cucumber-preprocessor');
 const createEsbuildPlugin = require('@badeball/cypress-cucumber-preprocessor/esbuild');
 const stdLibBrowser = require('node-stdlib-browser');
 const plugin = require('node-stdlib-browser/helpers/esbuild/plugin');
-const { queryTestDb } = require('./cypress/utils/queryDB');
 
 async function setupNodeEvents(on, config) {
 	config.baseUrl = 'https://the-internet.herokuapp.com';
@@ -46,10 +44,6 @@ async function setupNodeEvents(on, config) {
 	});
 
 	on('task', {
-		readPdf: (pathToPdf) => readPdf(pathToPdf),
-	});
-
-	on('task', {
 		parseXlsx({ filePath, sheetName, rows }) {
 			return new Promise((resolve, reject) => {
 				try {
@@ -59,12 +53,6 @@ async function setupNodeEvents(on, config) {
 					reject(e);
 				}
 			});
-		},
-	});
-
-	on('task', {
-		queryDb: (query) => {
-			return queryTestDb(query, config);
 		},
 	});
 
