@@ -4,14 +4,14 @@ trigger: none
 
 schedules:
   - cron: '30 14 * * 1-5'
-    displayName: 'Daily Build at 15:30 GMT+1'
+    displayName: 'Daily Regression at 15:30 GMT+1'
     always: true
     branches:
       include:
         - master
 
 jobs:
-  - job: scheduled-daily-run-of-all-tests
+  - job: scheduled-daily-run-of-regression-tag-tests
     timeoutInMinutes: 75
     steps:
       - script: |
@@ -19,7 +19,7 @@ jobs:
         displayName: 'Install Node Dependencies'
 
       - script: |
-          npx cypress run
+          npx cypress run --config specPattern=cypress/e2e/**/*.feature --env tags=@Regression
         displayName: 'Run Cypress Tests'
 
       - task: PublishPipelineArtifact@1
