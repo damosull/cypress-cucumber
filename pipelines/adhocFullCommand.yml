@@ -9,7 +9,7 @@ parameters:
 trigger: none
 
 jobs:
-  - job: adhoc-full-command
+  - job: adhoc-full-run-command
     timeoutInMinutes: 75
 
     steps:

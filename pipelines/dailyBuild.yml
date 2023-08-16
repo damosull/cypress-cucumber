@@ -11,7 +11,7 @@ schedules:
         - master
 
 jobs:
-  - job: E2EAutomation
+  - job: scheduled-daily-run-of-all-tests
     timeoutInMinutes: 75
     steps:
       - script: |

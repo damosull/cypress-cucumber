@@ -7,8 +7,8 @@
 	"scripts": {
 		"test": "cypress run",
 		"test:uat": "cypress run --env testEnv=ultra",
-		"open": "cypress open --e2e --browser electron",
-		"smoke": "cypress run --config specPattern=cypress/e2e/SmokeTests/*.feature",
+		"open:electron": "cypress open --e2e --browser electron",
+		"specifyFeatureFolderPath": "cypress run --config specPattern=cypress/e2e/SmokeTests/*.feature",
 		"lint": "eslint cypress",
 		"prettier": "prettier --write \"**/*.{js,json}\" && git add -A .",
 		"prepare": "husky install"
@@ -57,11 +57,11 @@
 		"rules": {}
 	},
 	"prettier": {
-		"trailingComma": "es5",
-		"tabWidth": 2,
-		"useTabs": true,
 		"printWidth": 120,
 		"semi": true,
-		"singleQuote": true
+		"singleQuote": true,
+		"trailingComma": "es5",
+		"tabWidth": 2,
+		"useTabs": true
 	}
 }
