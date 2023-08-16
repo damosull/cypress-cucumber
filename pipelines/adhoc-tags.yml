@@ -11,7 +11,7 @@ parameters:
 trigger: none
 
 jobs:
-  - job: E2E_Adhoc
+  - job: adhoc_specify_feature_tags
     timeoutInMinutes: 75
 
     steps:
