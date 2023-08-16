@@ -4,14 +4,14 @@ trigger: none
 
 schedules:
   - cron: '30 14 * * 1-5'
-    displayName: 'Daily Build at 08:00 GMT'
+    displayName: 'Daily Build at 15:30 GMT+1'
     always: true
     branches:
       include:
         - master
 
 jobs:
-  - job: ViewpointAutomation
+  - job: E2EAutomation
     timeoutInMinutes: 75
     steps:
       - script: |
