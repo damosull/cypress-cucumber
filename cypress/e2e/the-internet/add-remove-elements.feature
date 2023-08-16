@@ -12,7 +12,7 @@ Feature: Add/Remove Elements
              When I click the "Add Element" button
              Then there are 1 Delete buttons displayed on the page
              
-             When I click the "Add Element" button using mouse action
+             When I click the "Add Element" button using mouse actions
              Then there are 2 Delete buttons displayed on the page
              
              When I click the "Add Element" button using keyboard actions
