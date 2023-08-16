@@ -1,8 +1,8 @@
 name: '$(Build.DefinitionName)-$(Date:yyyyMMdd)$(Rev:.r)'
 
 parameters:
-  - name: buildParameters
-    displayName: 'Build Parameters'
+  - name: runCommand
+    displayName: 'Run Command'
     type: string
     default: 'npx cypress run --config specPattern=cypress/e2e/**/*.feature'
 
@@ -17,5 +17,5 @@ jobs:
         displayName: 'Install Node Dependencies'
 
       - script: |
-          ${{ parameters.buildParameters }}
+          ${{ parameters.runCommand }}
         displayName: 'Run Cypress tests'
