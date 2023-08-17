@@ -3,7 +3,7 @@ Feature: Add/Remove Elements
 
         Background:
 
-            Given I navigate to 'the-internet'
+            Given I go to 'the-internet'
              When I click the "Add/Remove Elements" link
              Then I am on the "add_remove_elements" page
 

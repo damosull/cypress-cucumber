@@ -3,7 +3,7 @@ Feature: Context Menu
 
         Background:
 
-            Given I navigate to 'the-internet'
+            Given I go to 'the-internet'
              When I click the "Context Menu" link
              Then I am on the "context_menu" page
 

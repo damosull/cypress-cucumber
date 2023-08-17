@@ -3,7 +3,7 @@ Feature: Drag and drop functionality on the page
               After the user drags & drops an element, verify the order has been updated
 
         Scenario: Drag A to B and verify the new locations
-            Given I navigate to 'the-internet'
+            Given I go to 'the-internet'
              When I click the "Drag and Drop" link
              Then I am on the "drag_and_drop" page
 

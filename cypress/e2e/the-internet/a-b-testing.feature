@@ -6,7 +6,7 @@ Feature: A/B Testing
         @Regression
         Scenario: Set a cookie to opt out of the A/B test
         
-            Given I navigate to 'the-internet'
+            Given I go to 'the-internet'
              When I click the "A/B Testing" link
              Then I am on the "abtest" page
               And the page header contains text 'A/B Test'

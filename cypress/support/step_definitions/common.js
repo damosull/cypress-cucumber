@@ -1,14 +1,6 @@
-import { Given, Then, When } from '@badeball/cypress-cucumber-preprocessor';
+import { When, Then } from '@badeball/cypress-cucumber-preprocessor';
 import aBTestingPage from '../page_objects/a-b-testing.page';
 import basicAuthPage from '../page_objects/basic-auth.page';
-
-Given('I navigate to {string}', (pageId) => {
-	if (pageId === 'the-internet') {
-		cy.visit(Cypress.config('baseUrl'));
-	} else {
-		throw new Error('Page Not Specified');
-	}
-});
 
 When('I click the {string} link', (txt) => {
 	cy.contains(txt).click();

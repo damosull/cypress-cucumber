@@ -7,7 +7,7 @@ Feature: Checkboxes
 
         Background:
 
-            Given I navigate to 'the-internet'
+            Given I go to 'the-internet'
              When I click the "Checkboxes" link
              Then I am on the "checkboxes" page
               And checkbox 1 is unchecked

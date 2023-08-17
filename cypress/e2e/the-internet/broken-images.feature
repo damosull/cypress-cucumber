@@ -4,7 +4,7 @@ Feature: Broken Images
 
         Scenario: Verify all images on the broken images page are working
         
-            Given I navigate to 'the-internet'
+            Given I go to 'the-internet'
              When I click the "Broken Images" link
              Then I am on the "broken_images" page
             
