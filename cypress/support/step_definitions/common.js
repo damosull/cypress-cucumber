@@ -26,26 +26,6 @@ Then('the {string} message is visible', (txt) => {
 	basicAuthPage.paragraph().should('be.visible').and('contain.text', `${txt}`);
 });
 
-Then('the Hello World! element is not visible', () => {
-	cy.get('#finish').should('not.be.visible');
-});
-
-Then('the Hello World! element is visible', () => {
-	cy.get('#finish').should('be.visible');
-});
-
-When('I trigger the show method of the Hello World! element', () => {
-	cy.get('#finish').invoke('show').should('be.visible'); // show() is used to display hidden elements
-});
-
-Then('wait until the loading bar disappears', () => {
-	cy.get('#loading').contains('Loading', { timeout: 20000 }).should('not.be.visible');
-});
-
-Then('the Hello World! element does not exist', () => {
-	cy.get('#finish').should('not.exist');
-});
-
 Then('the modal div is visible', () => {
 	cy.get('.modal').should('be.visible');
 });
@@ -59,15 +39,17 @@ Then('the floating menu is visible', () => {
 });
 
 When('I click the {string} button', (btnText) => {
+	let button;
 	if (btnText === 'Add Element') {
-		cy.get('[onclick="addElement()"]').click();
+		button = cy.get('[onclick="addElement()"]');
 	} else if (btnText === 'Upload') {
-		cy.get('#file-submit').click();
+		button = cy.get('#file-submit');
 	} else if (btnText === 'Retrieve password' || btnText === 'Where am I?') {
-		cy.contains(btnText).click();
+		button = cy.contains(btnText);
 	} else {
 		throw new Error('Button Not Specified');
 	}
+	button.click();
 });
 
 When('I type {string} in the textbox', (txt) => {
