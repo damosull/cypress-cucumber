@@ -27,7 +27,7 @@ Then('the page header contains text {string}', (txt) => {
 });
 
 Then('{string} has the text {string}', (el, txt) => {
-	cy.get(`#${el}`).should('have.text', txt);
+	cy.get(`#${el}`).should('be.visible').and('have.text', txt);
 });
 
 Then('the {string} message is visible', (txt) => {
