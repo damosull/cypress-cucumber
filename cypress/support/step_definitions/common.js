@@ -1,5 +1,6 @@
 import { Given, Then, When } from '@badeball/cypress-cucumber-preprocessor';
 import aBTestingPage from '../page_objects/a-b-testing.page';
+import basicAuthPage from '../page_objects/basic-auth.page';
 
 Given('I navigate to {string}', (pageId) => {
 	if (pageId === 'the-internet') {
@@ -29,8 +30,8 @@ Then('{string} has the text {string}', (el, txt) => {
 	cy.get(`#${el}`).should('have.text', txt);
 });
 
-Then('I can see the {string} message', (txt) => {
-	cy.get('p').should('be.visible').and('contain.text', `${txt}`);
+Then('the {string} message is visible', (txt) => {
+	basicAuthPage.paragraph().should('be.visible').and('contain.text', `${txt}`);
 });
 
 Then('the Hello World! element is not visible', () => {
