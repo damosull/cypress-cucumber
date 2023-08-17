@@ -1,4 +1,5 @@
 import { Given, Then, When } from '@badeball/cypress-cucumber-preprocessor';
+import aBTestingPage from '../page_objects/a-b-testing.page';
 
 Given('I navigate to {string}', (pageId) => {
 	if (pageId === 'the-internet') {
@@ -21,7 +22,7 @@ When('I refresh the page', () => {
 });
 
 Then('the page header contains text {string}', (txt) => {
-	cy.get('h3').should('contain.text', txt).should('be.visible');
+	aBTestingPage.header().should('be.visible').and('contain.text', txt);
 });
 
 Then('{string} has the text {string}', (el, txt) => {
@@ -41,8 +42,7 @@ Then('the Hello World! element is visible', () => {
 });
 
 When('I trigger the show method of the Hello World! element', () => {
-	// show() is used to display hidden elements
-	cy.get('#finish').invoke('show').should('be.visible');
+	cy.get('#finish').invoke('show').should('be.visible'); // show() is used to display hidden elements
 });
 
 Then('wait until the loading bar disappears', () => {
@@ -67,14 +67,13 @@ Then('the floating menu is visible', () => {
 
 When('I click the {string} button', (btnText) => {
 	if (btnText === 'Add Element') {
-		// eslint-disable-next-line
-		cy.get('[onclick="addElement()"]').click().should('be.visible');
+		cy.get('[onclick="addElement()"]').click();
 	} else if (btnText === 'Upload') {
 		cy.get('#file-submit').click();
 	} else if (btnText === 'Retrieve password' || btnText === 'Where am I?') {
 		cy.contains(btnText).click();
 	} else {
-		throw new Error('Element Not Specified');
+		throw new Error('Button Not Specified');
 	}
 });
 

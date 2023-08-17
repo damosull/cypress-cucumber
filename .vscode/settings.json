@@ -1,0 +1,17 @@
+{
+	"workbench.colorTheme": "Default Dark+",
+	"terminal.integrated.defaultProfile.windows": "Git Bash",
+	"files.autoSave": "afterDelay",
+	"cucumberautocomplete.steps": "cypress/support/step_definitions/**/*.js",
+	"cucumberautocomplete.syncfeatures": "cypress/**/*.feature",
+	"cucumberautocomplete.strictGherkinCompletion": true,
+	"cucumberautocomplete.customParameters": [],
+	"javascript.updateImportsOnFileMove.enabled": "always",
+	"explorer.confirmDragAndDrop": false,
+	"git.enableSmartCommit": true,
+	"git.autofetch": true,
+	"git.confirmSync": false,
+	"editor.minimap.enabled": false,
+	"workbench.editor.enablePreview": false,
+	"git.ignoreRebaseWarning": true
+}
