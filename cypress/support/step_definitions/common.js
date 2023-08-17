@@ -26,14 +26,6 @@ Then('the {string} message is visible', (txt) => {
 	basicAuthPage.paragraph().should('be.visible').and('contain.text', `${txt}`);
 });
 
-Then('the modal div is visible', () => {
-	cy.get('.modal').should('be.visible');
-});
-
-Then('the modal div is not visible', () => {
-	cy.get('.modal').should('not.be.visible');
-});
-
 Then('the floating menu is visible', () => {
 	cy.get('#menu').should('be.visible');
 });
