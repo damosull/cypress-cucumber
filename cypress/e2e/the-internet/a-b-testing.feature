@@ -23,5 +23,6 @@ Feature: A/B Testing
         @Smoke
         Scenario: Opt out of the A/B test with the Opt Out URL
 
-             When I go to the opt out URL the displayed alert reads 'You have successfully opted out of Optimizely for this domain.'
+             When I go to the opt out URL
+             Then the 'You have successfully opted out of Optimizely for this domain.' alert is displayed
              Then the page header contains text 'No A/B Test'
