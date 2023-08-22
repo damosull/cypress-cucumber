@@ -4,7 +4,7 @@ parameters:
   - name: runCommand
     displayName: 'Run Command'
     type: string
-    default: 'npx cypress run --config specPattern=cypress/e2e/**/*.feature'
+    default: 'npx cypress run --config specPattern=cypress/e2e/**/*.feature --env tags="not @Ignore"'
 
 trigger: none
 

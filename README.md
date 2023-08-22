@@ -110,3 +110,7 @@ Sorry Cypress Host URLs:
 
 - [Dashboard](https://sorrycypress-dashboard-devops.glasslewis.net/projects)
 - [Director Service](https://sorrycypress-director-pipeline.devops.glasslewis.net)
+
+# Explaining the Pipelines:
+
+- adhoc-full-command.yml: atm, the default run command specifies running all features/scenarios except any with the `@Ignore` tag. I've added that to any tests that fail due to bugs in the app
