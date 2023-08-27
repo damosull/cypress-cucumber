@@ -48,10 +48,17 @@ When('I type {string} in the textbox', (txt) => {
 	cy.get('#email').type(txt);
 });
 
-When('I see the {string} message', (msg) => {
+Then('I see the {string} message', (msg) => {
 	cy.contains('#content', msg).should('be.visible');
 });
 
-When('I can see the {string} link', (txt) => {
+Then('I can see the {string} link', (txt) => {
 	cy.contains(txt).should('be.visible');
+});
+
+Then('my coords are displayed', () => {
+	cy.fixture('coords.json').then((coords) => {
+		cy.contains(coords.latitude).should('be.visible');
+		cy.contains(coords.longitude).should('be.visible');
+	});
 });
