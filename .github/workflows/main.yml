@@ -16,8 +16,8 @@ jobs:
         run: npx cypress run --config specPattern=cypress/e2e/**/*.feature --env tags=@Regression
         continue-on-error: true
 
-      - name: Generate Report
-        run: node cypress/utils/cucumber-html-reporter.js
+      # - name: Generate Report
+      #   run: node cypress/utils/cucumber-html-reporter.js
 
       - name: Publish Report
         uses: actions/upload-artifact@v2
