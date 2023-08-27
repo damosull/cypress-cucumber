@@ -2,11 +2,7 @@ test-results
 test-screenshots
 runner-results
 node_modules
-cypress.env.json
 downloads
 cypress/downloads
 cypress/cucumber-json
-multi-reporter-config.json
-cypress/parallel-weights.json
-.husky/_
 .idea
