@@ -60,7 +60,7 @@ module.exports = defineConfig({
 	chromeWebSecurity: false,
 	defaultCommandTimeout: 30000,
 	env: {
-		testEnv: 'aqua',
+		testEnv: 'qa',
 	},
 	experimentalMemoryManagement: true,
 	e2e: {

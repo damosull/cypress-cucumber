@@ -11,7 +11,7 @@ schedules:
         - master
 
 jobs:
-  - job: scheduled_daily_run_of_regression_tag_tests
+  - job: daily_run_of_regression_tag_tests
     timeoutInMinutes: 75
     steps:
       - script: |

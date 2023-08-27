@@ -20,11 +20,11 @@ jobs:
 
       - script: |
           if [ ${{ parameters.testSuite }} == 'Smoke' ]; then
-            tags="tags=@Smoke"
+            tags="@Smoke"
           else
-            tags="tags=@Regression"
+            tags="@Regression"
           fi
-          cypressCommand="npx cypress run --config specPattern=cypress/e2e/**/*.feature --env $tags"
+          cypressCommand="npx cypress run --config specPattern=cypress/e2e/**/*.feature --env tags=$tags"
           echo "Running command: $cypressCommand"
           $cypressCommand
         displayName: 'Run Cypress tests'

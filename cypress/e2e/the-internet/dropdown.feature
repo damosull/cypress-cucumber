@@ -9,7 +9,7 @@ Feature: Dropdown functionality on the-internet.herokuapp.com
              Then I am on the "dropdown" page
               And the selected option text is 'Please select an option'
 
-
+        @28474    
         Scenario: User can select an option from the dropdown based on it's text or it's value
              When I select the option with 'text' of 'Option 1' from the dropdown
              Then the selected option text is 'Option 1'
@@ -19,5 +19,6 @@ Feature: Dropdown functionality on the-internet.herokuapp.com
              Then the selected option text is 'Option 2'
               And the selected option 'value' is '2'
 
-        Scenario: The first dropdown option is disabled (has the disabled attribute)
-              And the first option is disabled
+      @48678
+      Scenario: The first dropdown option is disabled (has the disabled attribute)
+            And the first option is disabled

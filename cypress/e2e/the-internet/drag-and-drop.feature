@@ -2,6 +2,7 @@ Feature: Drag and drop functionality on the page
               Users can drag & drop an element onto another element on the page
               After the user drags & drops an element, verify the order has been updated
 
+        @40724
         Scenario: Drag A to B and verify the new locations
             Given I go to 'the-internet'
              When I click the "Drag and Drop" link

@@ -13,7 +13,8 @@ Feature: Checkboxes
               And checkbox 1 is unchecked
               And checkbox 2 is checked
 
-        Scenario: I can check & uncheck checkboxes
+          @3331      
+          Scenario: I can check & uncheck checkboxes
 
              When I check checkbox 1
              Then checkbox 1 is checked
@@ -21,7 +22,8 @@ Feature: Checkboxes
              When I uncheck checkbox 2
              Then checkbox 2 is unchecked
 
-        Scenario: Check/Uncheck all checkboxes at one time, verify all checkboxes are checked/unchecked at one time
+          @28433
+          Scenario: Check/Uncheck all checkboxes at one time, verify all checkboxes are checked/unchecked at one time
         
              When I uncheck checkbox 2
              Then all checkboxes are unchecked

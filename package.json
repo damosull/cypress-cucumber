@@ -1,14 +1,17 @@
 {
 	"name": "cypress-tests",
 	"version": "1.0.0",
-	"description": "This repo consists of UI end to end automated tests for ...",
+	"description": "This repo consists of UI end to end automated tests for various websites & UI elements",
 	"author": "Quality Guild",
 	"license": "ISC",
 	"scripts": {
-		"test": "cypress run",
-		"test:uat": "cypress run --env testEnv=ultra",
-		"open:electron": "cypress open --e2e --browser electron",
-		"specifyFeatureFolderPath": "cypress run --config specPattern=cypress/e2e/SmokeTests/*.feature",
+		"test": "cypress run --env tags='not @Ignore'",
+		"test:uat": "cypress run --env testEnv=uat tags='not @Ignore'",
+		"open:electron": "cypress open --e2e --browser electron --env tags='not @Ignore'",
+		"smoke:tag": "npx cypress run --config specPattern=cypress/e2e/**/*.feature --env tags=@Smoke",
+		"regression:tag": "npx cypress run --config specPattern=cypress/e2e/**/*.feature --env tags=@Regression",
+		"specific:folder": "cypress run --config specPattern=cypress/e2e/the-internet/*.feature --env tags='not @Ignore'",
+		"specific:feature": "cypress run --config specPattern=cypress/e2e/the-internet/dropdown.feature --env tags='not @Ignore'",
 		"lint": "eslint cypress",
 		"prettier": "prettier --write \"**/*.{js,json}\" && git add -A .",
 		"prepare": "husky install"
