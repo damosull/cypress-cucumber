@@ -1,4 +1,4 @@
-name: Cypress Tests
+name: Daily Regression - Cypress/Cucumber
 
 on:
   push:
@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
       - name: Install dependencies
         run: npm ci
@@ -21,8 +21,15 @@ jobs:
         run: npx cypress run --config specPattern=cypress/e2e/**/*.feature --env tags=@Regression
         continue-on-error: true
 
-      - name: Publish Report
+      - name: Publish Cucumber Report
         uses: actions/upload-artifact@v2
         with:
           name: cucumber-report
           path: test-results/cucumber/cucumber_report.html
+
+      - name: Publish Failure Screenshots
+        if: ${{ failure() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: failure-screenshots
+          path: test-screenshots
