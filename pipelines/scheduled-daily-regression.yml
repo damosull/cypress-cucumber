@@ -1,6 +1,9 @@
 name: '$(Build.DefinitionName)-$(Date:yyyyMMdd)$(Rev:.r)'
 
-trigger: none
+trigger:
+  branches:
+    include:
+      - master
 
 schedules:
   - cron: '30 14 * * 1-5'
