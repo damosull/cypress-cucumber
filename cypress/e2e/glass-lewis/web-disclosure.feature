@@ -1,5 +1,6 @@
 Feature: F123 - Web Disclosure
 
+    This was developed on Nov. 17 2021 as part of Glass Lewis interview assigment for Senior QA Automation Engineer position
     Web Disclosure is public site where our clients can make the votes public.
 
     Scenario: The one where only meetings associated with the selected country are displayed
