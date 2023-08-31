@@ -1,6 +1,6 @@
 import { When, Then } from '@badeball/cypress-cucumber-preprocessor';
-import aBTestingPage from '../page_objects/a-b-testing.page';
-import basicAuthPage from '../page_objects/basic-auth.page';
+import aBTestingPage from '../../page_objects/a-b-testing.page';
+import basicAuthPage from '../../page_objects/basic-auth.page';
 
 When('I click the {string} link', (txt) => {
 	cy.contains(txt).click();

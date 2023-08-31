@@ -30,7 +30,7 @@
 		"prettier": "3.0.1"
 	},
 	"cypress-cucumber-preprocessor": {
-		"stepDefinitions": "cypress/support/step_definitions/*.js",
+		"stepDefinitions": "cypress/support/step_definitions/**/*.js",
 		"filterSpecs": true,
 		"omitFiltered": true,
 		"messages": {

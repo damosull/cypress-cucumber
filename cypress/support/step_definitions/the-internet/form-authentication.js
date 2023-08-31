@@ -1,5 +1,5 @@
 import { Then } from '@badeball/cypress-cucumber-preprocessor';
-import formAuthentication from '../page_objects/form-authentication.page';
+import formAuthentication from '../../page_objects/form-authentication.page';
 
 const users = [
 	{

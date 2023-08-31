@@ -1,5 +1,5 @@
 import { Then, When } from '@badeball/cypress-cucumber-preprocessor';
-import checkboxesPage from '../page_objects/checkboxes.page';
+import checkboxesPage from '../../page_objects/checkboxes.page';
 
 When('I check checkbox {int}', (index) => {
 	checkboxesPage.getCheckboxByIndex(index).check();

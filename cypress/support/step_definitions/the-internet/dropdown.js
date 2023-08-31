@@ -1,5 +1,5 @@
 import { When, Then } from '@badeball/cypress-cucumber-preprocessor';
-import dropdownPage from '../page_objects/dropdown.page';
+import dropdownPage from '../../page_objects/dropdown.page';
 
 When('I select the option with {string} of {string} from the dropdown', (attribute, value) => {
 	dropdownPage.dropdown().select(value);

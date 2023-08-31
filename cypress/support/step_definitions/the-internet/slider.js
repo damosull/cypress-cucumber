@@ -1,5 +1,5 @@
 import { When, Then } from '@badeball/cypress-cucumber-preprocessor';
-import sliderPage from '../page_objects/slider.page';
+import sliderPage from '../../page_objects/slider.page';
 
 Then('the value of the slider is {float}', (val) => {
 	sliderPage.slider().should('be.visible').and('have.value', val);

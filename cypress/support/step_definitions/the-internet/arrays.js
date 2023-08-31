@@ -1,5 +1,5 @@
 import { When, Then } from '@badeball/cypress-cucumber-preprocessor';
-import dynamicContentPage from '../page_objects/dynamic-content.page';
+import dynamicContentPage from '../../page_objects/dynamic-content.page';
 
 let dynamicImgSrcAttrFirstVisit = [];
 let dynamicTrimContentFirstVisit = [];
