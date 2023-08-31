@@ -1,6 +1,6 @@
-Feature: F123 - Web Disclosure (WD)
+Feature: F123 - Web Disclosure
 
-    Web Disclosure (WD) is  public site where our clients can make the votes public.
+    Web Disclosure is public site where our clients can make the votes public.
 
     Scenario: The one where only meetings associated with the selected country are displayed
         Given user is on the landing page for WD site
