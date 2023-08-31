@@ -1,5 +1,5 @@
 import { When, Then } from '@badeball/cypress-cucumber-preprocessor';
-import dynamicLoadingPage from '../../page_objects/dynamic-loading.page';
+import dynamicLoadingPage from '../../page_objects/the-internet/dynamic-loading.page';
 
 Then('the Hello World! element is not visible', () => {
 	dynamicLoadingPage.helloWorld().should('not.be.visible');

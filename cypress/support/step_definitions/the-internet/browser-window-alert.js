@@ -1,5 +1,5 @@
 import { When, Then } from '@badeball/cypress-cucumber-preprocessor';
-import contextMenuPage from '../../page_objects/context-menu.page';
+import contextMenuPage from '../../page_objects/the-internet/context-menu.page';
 
 When('I right-click on the div', () => {
 	contextMenuPage.div().rightclick();

@@ -1,5 +1,5 @@
 import { Then } from '@badeball/cypress-cucumber-preprocessor';
-import entryAdPage from '../../page_objects/entry-ad.page';
+import entryAdPage from '../../page_objects/the-internet/entry-ad.page';
 
 Then('the modal div is visible', () => {
 	entryAdPage.modal().should('be.visible');

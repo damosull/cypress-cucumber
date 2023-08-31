@@ -1,5 +1,5 @@
 import { When, Then } from '@badeball/cypress-cucumber-preprocessor';
-import brokenImagesPage from '../../page_objects/broken-images.page';
+import brokenImagesPage from '../../page_objects/the-internet/broken-images.page';
 
 When('the browser has finished loading all images', () => {
 	brokenImagesPage.images().each((image) => {

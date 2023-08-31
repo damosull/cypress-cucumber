@@ -1,5 +1,5 @@
 import { When, Then } from '@badeball/cypress-cucumber-preprocessor';
-import fileUploadPage from '../../page_objects/file-upload.page';
+import fileUploadPage from '../../page_objects/the-internet/file-upload.page';
 
 When('I choose the {string} file', (fileName) => {
 	fileUploadPage.fileUploadControl().selectFile(fileName);

@@ -18,7 +18,7 @@ Feature: A/B Testing
 
              When I clear all cookies
               And I refresh the page
-             Then the page header contains text 'A/B ffTest'
+             Then the page header contains text 'A/B Test'
 
         @Smoke
         Scenario: Opt out of the A/B test with the Opt Out URL
