@@ -18,7 +18,10 @@ jobs:
         run: npm ci
 
       - name: Run Tests
-        run: npx cypress run --config specPattern=cypress/e2e/**/*.feature --env tags=@Regression
+        id: cypress-tests
+        run: |
+          npx cypress run --config specPattern=cypress/e2e/**/*.feature --env tags=@Regression
+          echo "Cypress tests completed"
         continue-on-error: true
 
       - name: Publish Cucumber Report
@@ -27,8 +30,15 @@ jobs:
           name: cucumber-report
           path: test-results/cucumber/cucumber_report.html
 
+  publish-screenshots:
+    needs: cypress
+    runs-on: ubuntu-latest
+    if: failure()
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
       - name: Publish Failure Screenshots
-        if: ${{ failure() }}
         uses: actions/upload-artifact@v2
         with:
           name: failure-screenshots
