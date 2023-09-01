@@ -6,7 +6,7 @@ on:
       runCommand:
         description: 'Run Command'
         required: true
-        default: 'Smoke'
+        default: 'npx cypress run --config specPattern=cypress/e2e/**/*.feature --env tags="not @Ignore"'
 
 jobs:
   cypress:
