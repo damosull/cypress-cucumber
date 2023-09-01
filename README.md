@@ -63,8 +63,8 @@ Using Cucumber tags allows you to run test cases of your choice. Most tests in t
 
 All Github Actions CI Pipelines are available in the `.github/workflows` folder. Currently we have 2:
 
-- [daily-regression.yml](.github/workflows/daily-regression.yml) - Triggered when code is pushed to this repository, & is scheduled to run every day.
-- [adhoc-tags.yml](.github/workflows/adhoc-tags.yml) `adhoc-tags.yml` - Manually triggered. You specify if you want to run all `@Smoke` or `@Regression` tests.
+- [daily-regression.yml](.github/workflows/daily-regression.yml) - Triggered when code is pushed to this repository, & scheduled to run every day.
+- [adhoc-tags.yml](.github/workflows/adhoc-tags.yml) - Manually triggered. You specify if you want to run all `@Smoke` or `@Regression` tests.
 - [adhoc-full-command.yml](.github/workflows/adhoc-full-command.yml) - Manually triggered. You specify the full run command by updating the default one.
 
 <br/>
@@ -73,9 +73,9 @@ All Github Actions CI Pipelines are available in the `.github/workflows` folder.
 
 All Azure DevOps CI Pipelines are available in the `pipelines` folder. Currently we have 3:
 
-- `adhoc-full-command`(link to be added) - This pipeline can be used to run any specific tests. The build parameter accepts a run command which can be amended as needed.
-- `adhoc-tags`(link to be added) - This pipeline can be used to run either the Smoke or Regression tests. The build parameter accepts a test suite name which determines the tests to be run. These tests are grouped using `@Smoke` or `@Regression` tags.
-- `daily-regression`(link to be added) - This pipeline runs all the regression tests on QA environment. It runs once daily at a specific time.
+- [adhoc-full-command.yml](pipelines/adhoc-full-command.yml) - This pipeline can be used to run any specific tests. The build parameter accepts a run command which can be amended as needed.
+- [`adhoc-tags.yml`](pipelines/adhoc-tags.yml) - This pipeline can be used to run either the Smoke or Regression tests. The build parameter accepts a test suite name which determines the tests to be run. These tests are grouped using `@Smoke` or `@Regression` tags.
+- [daily-regression.yml](pipelines/daily-regression.yml) - This pipeline runs all the regression tests on QA environment. It runs once daily at a specific time.
 
 <br/>
 
