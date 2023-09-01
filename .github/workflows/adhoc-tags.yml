@@ -25,7 +25,6 @@ jobs:
       - name: Run Tests
         id: cypress-tests
         run: |
-          my_variable=@${{ inputs.testSuite }}
           npx cypress run --config specPattern=cypress/e2e/**/*.feature --env tags=@${{ inputs.testSuite }}
           echo "Cypress tests completed"
         continue-on-error: true
