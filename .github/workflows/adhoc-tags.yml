@@ -1,11 +1,16 @@
-name: Daily Regression - Cypress/Cucumber
+name: Adhoc Tags
 
 on:
-  push:
-    branches:
-      - master
-  schedule:
-    - cron: '30 14 * * 1-5'
+  workflow_dispatch:
+    inputs:
+      testSuite:
+        description: 'Test Suite'
+        required: true
+        default: 'Smoke'
+        type: choice
+        options:
+          - Smoke
+          - Regression
 
 jobs:
   cypress:
