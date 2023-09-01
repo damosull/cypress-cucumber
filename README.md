@@ -8,9 +8,11 @@ This repo consists of the cypress end-to-end tests for various applications.
 
 If you want to run automated tests on ..., but have little or no idea on how to run specific test scripts, then follow below steps. This will help you run specific automated test scripts from the ... Test Suite.
 
+# Running Tests for non-tech users (on Azure DevOps pipeline - access is not public ATM)
+
 To run tests on Azure Pipelines, go to this link (to be added), click on `Run pipeline`, put the command suggested below under `Build Parameters`. Choose the test environment as required. Then, Click `Run`.
 
-## Running any test case from Azure DevOps
+# Running any test case from Azure DevOps (on Azure DevOps pipeline - access is not public ATM)
 
 - To run specific tests where you know the test ID, mention the Azure test IDs in this command. For example, if I want to run test case ID 28722, the command to use in the `Build Parameters` field would be `npx cypress run --env tags=@28722`
 - To run multiple tests, just add those test IDs in the tags section of the above command, eg: `tags='@xyz or @abc or @lmn or @pqr or @fgh'`
@@ -57,12 +59,20 @@ Using Cucumber tags allows you to run test cases of your choice. Most tests in t
 
 <br/>
 
-# CI
+# CI (Github Actions) - IN PROGRESS
 
-All CI Pipelines are available in the `pipelines` folder. Currently we have 3:
+All Github Actions CI Pipelines are available in the `.github/workflows` folder. Currently we have 1:
+
+- `main.yml`(link to be added) - This pipeline is triggered when code is pushed to this repository.
+
+<br/>
+
+# CI (on Azure DevOps pipeline - access is not public ATM)
+
+All Azure DevOps CI Pipelines are available in the `pipelines` folder. Currently we have 3:
 
 - `adhoc-full-command`(link to be added) - This pipeline can be used to run any specific tests. The build parameter accepts a run command which can be amended as needed.
-- `adhoc-tags`(link to be added) - This pipeline can be used to run either the Smoke or Regression tests. The build parameter accepts a test suite name which determines the tests to be run. These tests are grouped using `@Smoke` or `@Regression` tags. 
+- `adhoc-tags`(link to be added) - This pipeline can be used to run either the Smoke or Regression tests. The build parameter accepts a test suite name which determines the tests to be run. These tests are grouped using `@Smoke` or `@Regression` tags.
 - `daily-regression`(link to be added) - This pipeline runs all the regression tests on QA environment. It runs once daily at a specific time.
 
 <br/>
