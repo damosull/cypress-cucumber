@@ -18,10 +18,7 @@ jobs:
         run: npm ci
 
       - name: Run Tests
-        id: cypress-tests
-        run: |
-          npx cypress run --config specPattern=cypress/e2e/**/*.feature --env tags=@Regression
-          echo "Cypress tests completed"
+        run: npx cypress run --config specPattern=cypress/e2e/**/*.feature --env tags=@Regression
         continue-on-error: true
 
       - name: Publish Cucumber Report
@@ -30,11 +27,9 @@ jobs:
           name: cucumber-report
           path: test-results/cucumber/cucumber_report.html
 
-      - name: Capture Failure Screenshots
-        if: steps.cypress-tests.outcome == 'failure'
-        run: |
-          # Capture and publish the failure screenshots
-          echo "Capturing and publishing failure screenshots..."
-        continue-on-error: true
-
-      # Add other steps to continue the pipeline as needed
+      - name: Publish Failure Screenshots
+        # if: ${{ failure() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: failure-screenshots
+          path: test-screenshots
