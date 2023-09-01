@@ -28,7 +28,7 @@ jobs:
           path: test-results/cucumber/cucumber_report.html
 
       - name: Publish Failure Screenshots
-        if: ${{ failure() }}
+        # if: ${{ failure() }}
         uses: actions/upload-artifact@v2
         with:
           name: failure-screenshots

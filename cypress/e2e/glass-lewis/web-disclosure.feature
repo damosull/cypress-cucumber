@@ -21,4 +21,4 @@ Feature: F123 - Web Disclosure
         Examples:
         | companyName   |
         | Activision Blizzard Inc |
-        | Teladoc Health Inc      |
+        | Teladoc Heasdfalth Inc      |
