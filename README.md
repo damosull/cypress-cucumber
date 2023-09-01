@@ -74,7 +74,7 @@ All Github Actions CI Pipelines are available in the `.github/workflows` folder.
 All Azure DevOps CI Pipelines are available in the `pipelines` folder. Currently we have 3:
 
 - [adhoc-full-command.yml](pipelines/adhoc-full-command.yml) - Runs any specific tests. The build parameter accepts a run command which can be amended as needed.
-- [`adhoc-tags.yml`](pipelines/adhoc-tags.yml) - Runs either the Smoke or Regression tests. The build parameter accepts a test suite name which determines the tests to be run. These tests are grouped using `@Smoke` or `@Regression` tags.
+- [adhoc-tags.yml](pipelines/adhoc-tags.yml) - Runs either the Smoke or Regression tests. The build parameter accepts a test suite name which determines the tests to be run. These tests are grouped using `@Smoke` or `@Regression` tags.
 - [daily-regression.yml](pipelines/daily-regression.yml) - Runs all the regression tests on QA environment. It runs once daily at a specific time.
 
 <br/>
