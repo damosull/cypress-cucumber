@@ -30,11 +30,11 @@ jobs:
           name: cucumber-report
           path: test-results/cucumber/cucumber_report.html
 
-      - name: Publish Failure Screenshots
-        uses: actions/upload-artifact@v2
-        with:
-          name: Screenshots
-          path: test-screenshots
+      # - name: Publish Failure Screenshots
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: Screenshots
+      #     path: test-screenshots
 
       - name: Check file existence
         id: check_files
