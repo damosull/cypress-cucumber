@@ -1,0 +1,28 @@
+name: Use input or job output
+
+on:
+  workflow_dispatch:
+    inputs:
+      my_input:
+        description: Some workflow input
+        type: string
+  pull_request:
+  
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - id: set_output
+        run: echo "my_output=helloworld" >> $GITHUB_OUTPUT
+
+      - name: Save job output OR workflow dispatch to Env
+        run: |
+          if [[ ${{ github.event_name == 'workflow_dispatch' }} == true ]]; then
+            my_variable=${{ inputs.my_input }}
+          else
+            my_variable=${{ steps.set_output.outputs.my_output }}
+          fi
+          echo "my_variable=$my_variable" >> $GITHUB_ENV
+
+      - name: Use the variable from previous step
+        run: echo ${{ env.my_variable }}
