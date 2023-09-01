@@ -29,17 +29,3 @@ jobs:
         with:
           name: cucumber-report
           path: test-results/cucumber/cucumber_report.html
-
-  publish-screenshots:
-    needs: cypress
-    runs-on: ubuntu-latest
-    if: failure()
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Publish Failure Screenshots
-        uses: actions/upload-artifact@v2
-        with:
-          name: failure-screenshots
-          path: test-screenshots
