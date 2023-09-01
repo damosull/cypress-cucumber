@@ -59,7 +59,7 @@ Using Cucumber tags allows you to run test cases of your choice. Most tests in t
 
 <br/>
 
-# CI (Github Actions) - IN PROGRESS
+# CI (Github Actions)
 
 All Github Actions CI Pipelines are available in the [.github/workflows](.github/workflows) folder. Currently we have 3:
 
