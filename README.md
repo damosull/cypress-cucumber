@@ -64,8 +64,8 @@ Using Cucumber tags allows you to run test cases of your choice. Most tests in t
 All Github Actions CI Pipelines are available in the `.github/workflows` folder. Currently we have 2:
 
 - [daily-regression.yml](.github/workflows/daily-regression.yml) - Triggered when code is pushed to this repository, & is scheduled to run every day.
-- `adhoc-tags.yml` (link to be added) - Manually triggered. You specify if you want to run all `@Smoke` or `@Regression` tests.
-- `adhoc-full-command.yml` (link to be added) - Manually triggered. You specify the full run command by updating the default one.
+- [adhoc-tags.yml](.github/workflows/adhoc-tags.yml) `adhoc-tags.yml` - Manually triggered. You specify if you want to run all `@Smoke` or `@Regression` tests.
+- [adhoc-full-command.yml](.github/workflows/adhoc-full-command.yml) - Manually triggered. You specify the full run command by updating the default one.
 
 <br/>
 
