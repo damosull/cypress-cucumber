@@ -28,7 +28,7 @@ jobs:
           my_variable=@${{ inputs.testSuite }}
           npx cypress run --config specPattern=cypress/e2e/**/*.feature --env tags=@Regression
           echo "Cypress tests completed"
-          echo "Damo: " ${{ env.my_variable }}
+          echo ${{ env.my_variable }}
         continue-on-error: true
 
       - name: Publish Cucumber Report
