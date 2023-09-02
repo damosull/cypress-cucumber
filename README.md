@@ -76,9 +76,3 @@ All Azure DevOps CI Pipelines are available in the [pipelines](pipelines) folder
 - [daily-regression.yml](pipelines/daily-regression.yml) - Triggered when code is pushed to master branch, & scheduled to run every weekday.
 - [adhoc-tags.yml](pipelines/adhoc-tags.yml) - Manually triggered. You specify if you want to run all `@Smoke` or `@Regression` tests.
 - [adhoc-full-command.yml](pipelines/adhoc-full-command.yml) - Manually triggered. You specify the full run command by updating the default one.
-
-<br/>
-
-# Explaining the Pipelines:
-
-- adhoc-full-command.yml: atm, the default run command specifies running all features/scenarios except any with the `@Ignore` tag. I've added that to any tests that fail due to bugs in the app.
