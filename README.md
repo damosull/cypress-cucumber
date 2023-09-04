@@ -76,3 +76,16 @@ All Azure DevOps CI Pipelines are available in the [pipelines](pipelines) folder
 - [daily-regression.yml](pipelines/daily-regression.yml) - Triggered when code is pushed to master branch, & scheduled to run every weekday.
 - [adhoc-tags.yml](pipelines/adhoc-tags.yml) - Manually triggered. You specify if you want to run all `@Smoke` or `@Regression` tests.
 - [adhoc-full-command.yml](pipelines/adhoc-full-command.yml) - Manually triggered. You specify the full run command by updating the default one.
+
+# Docker
+
+Our [Dockerfile](Dockerfile) defines the config. & instructions for building a Docker image to run Cypress tests within a containerized environment.
+
+Before running, you need the following:
+
+1. Docker installed on your machine.
+2. The Docker image must be built - `docker build -t my-cypress-image .`. You can check if it's already built via Docker Desktop.
+
+You can run [./runWithDocker.sh](runWithDocker.sh) to execute a script that uses a Docker container to run the Cypress tests, copy the test-results into a local `test-results` folder, stop, & remove the Docker container.
+
+Or, you can run `docker run -it -d my-cypress-image` yourself, but you would need to somehow copy the test results from the Container to your local project.
