@@ -7,7 +7,7 @@ if [ -z "$husky_skip_init" ]; then
   }
 
   readonly hook_name="$(basename -- "$0")"
-  debug "starting hook: $hook_name..."
+  debug "starting $hook_name..."
 
   if [ "$HUSKY" = "0" ]; then
     debug "HUSKY env variable is set to 0, skipping hook"
@@ -29,7 +29,7 @@ if [ -z "$husky_skip_init" ]; then
   fi
 
   if [ $exitCode = 127 ]; then
-    echo " husky - command not found in PATH=$PATH"
+    echo "husky - command not found in PATH=$PATH"
   fi
 
   exit $exitCode
